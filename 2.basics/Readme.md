@@ -2,3 +2,8 @@
 ```
 go mod init basics
 ```
+
+### run a go file 
+```
+go run  <file name>
+```
