@@ -23,7 +23,7 @@
 *   not allowed to define functions inside the function
 *   changing type of a variable is not allowed in go once declared
 *   **division operator /** gives int for( int operands) values not float values
-*   1 based indexing in slice data structure and in range function
+*   1 based indexing in  range function
 
 initialize the module file
 ```
