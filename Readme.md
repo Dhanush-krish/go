@@ -24,6 +24,7 @@
 *   changing type of a variable is not allowed in go once declared
 *   **division operator /** gives int for( int operands) values not float values
 *   1 based indexing in  range function
+*   try catch block is not present in go
 
 initialize the module file
 ```
