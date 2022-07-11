@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"encoding/json"
+	"fmt"
+)
 
 func main() {
 	//struct is used to store variables of different data types
@@ -18,4 +21,25 @@ func main() {
 
 	//acessing property in struct
 	fmt.Println("My age is", person.Age)
+
+	// nested struct
+	//json => regions:{{"us":{"ref_user_id":82631 }}}
+
+	type RefId struct {
+		RefUserId int `json:"ref_user_id"`
+	}
+
+	type Region struct {
+		Region RefId `json:"us"`
+	}
+
+	data := []byte(`{"us":{"ref_user_id":82631 }}`)
+
+	fmt.Println(string(data))
+
+	var regions Region
+	err := json.Unmarshal(data, &regions)
+	fmt.Println(err)
+
+	fmt.Printf("%+v", regions)
 }

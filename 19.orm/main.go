@@ -3,30 +3,49 @@ package main
 import (
 	"fmt"
 
+	sql "github.com/go-sql-driver/mysql"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
 
 func main() {
+	config := sql.Config{
+		User:                 "user",
+		Passwd:               "password",
+		Addr:                 "127.0.0.1:3306",
+		Net:                  "tcp",
+		DBName:               "database",
+		AllowNativePasswords: true,
+		ParseTime:            true,
+	}
 
-	fmt.Println("Go orm basics")
-	dsn := "root:root@tcp(127.0.0.1:3306)/playground?checkConnLiveness=false&parseTime=true&maxAllowedPacket=0"
-	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
+	db, err := gorm.Open(mysql.New(mysql.Config{DSN: config.FormatDSN()}))
 	if err != nil {
 		fmt.Println("db.Open", err)
 	}
 
-	//table structure
+	sqlDB, err := db.DB()
+
+	if err != nil {
+		//TODO need to add logging
+		fmt.Println(db, err)
+	}
+
+	if err := sqlDB.Ping(); err != nil {
+		//TODO need to add logging
+		fmt.Println(db, err)
+	}
+
+	// //table structure
 	type Users struct {
-		ID       string
-		Email    string
-		Password string
+		Id    int
+		Email string
 	}
 
 	var user Users
 
-	db.First(&user, "id = ?", "bd6b1f8a-41d3-404a-bf95-01dc3063e164")
-	fmt.Println(user)
+	db.Where("email = ?", "dhanush.uthiran@unbxd.com").First(&user)
+	fmt.Printf("%+v", user)
 	fmt.Println("")
 
 }
