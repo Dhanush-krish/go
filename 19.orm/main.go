@@ -44,7 +44,7 @@ func main() {
 
 	var user Users
 
-	db.Where("email = ?", "dhanush.uthiran@unbxd.com").First(&user)
+	db.Where("email = ?", "dhanush.uthiran@gmail.com").First(&user)
 	fmt.Printf("%+v", user)
 	fmt.Println("")
 

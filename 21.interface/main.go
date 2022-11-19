@@ -28,7 +28,7 @@ type Rectangle struct {
 	Breath float32
 }
 
-//rectangle method
+// rectangle method
 func (r Rectangle) Area() float32 {
 	return r.Length * r.Breath
 }

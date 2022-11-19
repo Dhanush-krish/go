@@ -12,13 +12,13 @@ import (
 )
 
 // service interface
-//service.go
+// service.go
 type StringService interface {
 	Length(string) int
 }
 
-//service implementation
-//logic.go
+// service implementation
+// logic.go
 type stringService struct{}
 
 func (stringService) Length(str string) int {
@@ -26,7 +26,7 @@ func (stringService) Length(str string) int {
 }
 
 // rpc functions
-//reqresp.go
+// reqresp.go
 type lengthRequest struct {
 	S string `json:"s"`
 }
@@ -35,7 +35,7 @@ type lengthResponse struct {
 	V int `json:"v"`
 }
 
-//endpoints
+// endpoints
 // endpoints.go
 func makeLengthEndpoint(svc StringService) endpoint.Endpoint {
 	return func(ctx context.Context, request interface{}) (interface{}, error) {
