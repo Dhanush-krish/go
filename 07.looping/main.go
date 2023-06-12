@@ -6,7 +6,7 @@ import "fmt"
 
 func main() {
 
-	// while loop implementation using foor loop
+	// while loop implementation using for loop
 	counter := 1
 	for counter <= 10 {
 		fmt.Println("counter using while loop -", counter)
@@ -29,6 +29,10 @@ func main() {
 		fmt.Println("counter using for loop ", iter)
 	}
 
-	// todo for each is pending
+	//for range
+	slice := []string{"zero", "one", "two", "three", "four"}
+	for idx, element := range slice {
+		fmt.Println(element, "is at index", idx)
+	}
 
 }

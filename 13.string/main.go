@@ -21,7 +21,7 @@ func main() {
 	// converting string to array
 	fmt.Println("converting to lower case", strings.Split(str, " "))
 
-	// converting string to array
+	// string replace
 	fmt.Println("converting to lower case", strings.Replace(str, "GO", "went", 1))
 
 }

@@ -12,14 +12,18 @@ func main() {
 	fmt.Println("elements in slice:", slice[0:3])
 
 	// adding element to slice
-	var slice1 []int
+	slice1 := make([]int, 40)
 	slice1 = append(slice1, 10)
 	slice1 = append(slice1, 20)
 	fmt.Println("Elements in slice1:", slice1)
 	fmt.Println("")
 
-	for _, index := range slice {
-		fmt.Printf("value at index %d is %d\n", index, slice[index-1])
+	// find the capacity of the slice -> exess memory after memory expansion
+	fmt.Println("capacity of slice is - ", cap(slice1))
+	fmt.Println("")
+
+	for idx, value := range slice {
+		fmt.Printf("value at index %d is %d\n", idx, value)
 	}
 
 }

@@ -10,11 +10,11 @@ import (
 
 func main() {
 	config := sql.Config{
-		User:                 "user",
+		User:                 "developer",
 		Passwd:               "password",
 		Addr:                 "127.0.0.1:3306",
 		Net:                  "tcp",
-		DBName:               "database",
+		DBName:               "development",
 		AllowNativePasswords: true,
 		ParseTime:            true,
 	}
@@ -36,16 +36,23 @@ func main() {
 		fmt.Println(db, err)
 	}
 
-	// //table structure
-	type Users struct {
-		Id    int
-		Email string
+	// tables models
+	type Order struct {
+		gorm.Model
 	}
 
-	var user Users
+	type Card struct {
+		gorm.Model
+		Name string
+	}
 
-	db.Where("email = ?", "dhanush.uthiran@gmail.com").First(&user)
-	fmt.Printf("%+v", user)
-	fmt.Println("")
+	type User struct {
+		gorm.Model
+		Name   string
+		CardId int
+		Card   Card
+	}
+
+	db.AutoMigrate(&User{})
 
 }

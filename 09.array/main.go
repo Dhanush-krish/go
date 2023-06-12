@@ -20,6 +20,9 @@ func main() {
 	arr1[1] = "age"
 	fmt.Println("content in string array :", arr1)
 
+	//printing with quots
+	fmt.Printf("with quotes - %q \n", arr1)
+
 	//zero based index
 	fmt.Println("first element in the array", arr1[0])
 	fmt.Println("")
@@ -30,8 +33,8 @@ func main() {
 	}
 	fmt.Println("")
 
-	//acessing elements using for range ==> 1 based indexing
-	for _, index := range arr {
-		fmt.Printf("%d is at position %d using range\n", arr[index-1], index)
+	//acessing elements using for range ==> 0 based indexing
+	for index, value := range arr {
+		fmt.Printf("%d is at position %d using range\n", value, index)
 	}
 }

@@ -57,3 +57,5 @@ reference
 *   https://go.dev/doc/tutorial/getting-started
 *   https://pkg.go.dev/
 *   https://www.programiz.com/golang/
+*   https://www.digitalocean.com/community/tutorial_series/how-to-code-in-go
+*   https://go.dev/play/?v=goprev

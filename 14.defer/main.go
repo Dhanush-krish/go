@@ -4,6 +4,7 @@ import "fmt"
 
 // defer statements will execute at the end of all the executions
 // First differ will execute at the end
+// mostly used to clean up resources
 
 func main() {
 	defer fmt.Println("Hello")
